@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class arrayPares {
+public class ArrayPares {
     public static void main(String[] args) {
 
         List<Integer> pares = new ArrayList<>();

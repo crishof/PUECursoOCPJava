@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class EjRectangulo {
+public class ArrayRectangulos {
 
     public static void main(String[] args) {
 
