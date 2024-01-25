@@ -7,7 +7,7 @@ public class Ahorcado {
 
 //        Implementa el juego del ahorcado. La computadora elige una palabra al azar y el usuario tiene que adivinarla ingresando letras.
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in).useDelimiter("\n");
         String[] palabras = {"palabra", "ordenador", "murcielago", "capitolio", "castillo"};
         String palabraAdivinar = palabras[new Random().nextInt(palabras.length)];
 

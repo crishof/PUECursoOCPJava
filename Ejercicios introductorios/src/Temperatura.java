@@ -5,7 +5,7 @@ public class Temperatura {
 
 //      Desarrolla un programa que convierta la temperatura de Celsius a Fahrenheit y viceversa. Permite al usuario elegir la dirección de la conversión.
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in).useDelimiter("\n");
 
         System.out.println("Ingrese la cantidad de grados");
         int temp = scanner.nextInt();

@@ -6,7 +6,7 @@ public class Vocales {
 //      Dado una palabra en Java (String), mostrar por la consola el número de vocales
 //      Reemplazar las vocales por otro caracter
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in).useDelimiter("\n");
         String vocales = "aeiou";
 
         System.out.println("Ingrese una palabra");
