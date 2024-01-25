@@ -5,8 +5,6 @@ import java.util.Scanner;
 
 
 public class ArrayCirculos {
-
-
     public static void main(String[] args) {
 
         /*
@@ -81,5 +79,29 @@ public class ArrayCirculos {
         }
 
         return circulosColor;
+    }
+
+    public static class Circulo {
+
+        private final double radio;
+        private final String color;
+
+        public Circulo(double radio, String color) {
+            this.radio = radio;
+            this.color = color;
+        }
+
+        public double area() {
+            return Math.PI * radio * radio;
+        }
+
+        public String getColor() {
+            return color;
+        }
+
+        @Override
+        public String toString() {
+            return "Circulo{" + "radio=" + radio + ", color='" + color + '\'' + '}';
+        }
     }
 }
