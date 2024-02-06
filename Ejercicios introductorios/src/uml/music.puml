@@ -1,0 +1,44 @@
+@startuml
+
+Class Cancion{
+    - duracion : float
+    - nombreCancion : String
+    - letra : String
+}
+
+Class Album{
+    - titulo : String
+    - fechaLanzamiento : LocalDate
+    - numeroCanciones : int
+    - duracionTotal : double
+    - caratula : String
+}
+
+Class PlayList{
+    + nombreCancion : String
+    - esPublica : boolean
+}
+
+Class Genero{
+    - nombre : String
+}
+
+Class Artista{
+    - nombre : String
+    - fechaNacimiento : LocalDate
+    - paisOrigen : String
+    - numeroAlbumes : int
+    - numeroCanciones : int
+    - biografia : String
+}
+
+Cancion --> PlayList
+Cancion "1.*" --> "0.*" Genero
+Cancion "0.*" --o "0.*" PlayList
+Cancion "1.*" --* "0.*" Album
+
+Artista --> Album
+Artista --> Cancion
+
+
+@enduml

@@ -2,7 +2,7 @@ package org.example;
 
 import java.time.LocalDate;
 
-public class Jugador {
+public class Jugador implements Comparable<Jugador> {
     private String nombre;
     private String apellido;
     private LocalDate fechaNacimiento;
@@ -86,7 +86,13 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "Jugador: " +  nombre + " " + apellido + ", " + fechaNacimiento + ", canastas:" + canastas + ", rebotes:" + rebotes + ", asistencias:" + asistencias + ", posicion:" + posicion;
+        return "Jugador: " + nombre + " " + apellido + ", " + fechaNacimiento + ", canastas:" + canastas + ", rebotes:" + rebotes + ", asistencias:" + asistencias + ", posicion:" + posicion;
+    }
+
+    @Override
+    public int compareTo(Jugador o) {
+
+        return Integer.compare(this.getCanastas(), o.getCanastas());
     }
 }
 

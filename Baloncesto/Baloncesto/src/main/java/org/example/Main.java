@@ -1,9 +1,7 @@
 package org.example;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -39,7 +37,8 @@ public class Main {
 
         System.out.println("= = = = = FILTRADO POR MEDIA DE REBOTES DE TODOS LOS PIVOTS = = = = = ");
 
-        List<Jugador> listaPivots = listaJugadores.stream().filter(jugador -> jugador.getPosicion().toString().equals("PIVOT")).toList();
+        List<Jugador> listaPivots = listaJugadores.stream()
+                .filter(jugador -> jugador.getPosicion().toString().equals("PIVOT")).toList();
 
         double mediaRebotes = listaPivots.stream().mapToInt(Jugador::getRebotes).average().orElse(0.0);
         System.out.println("La media es : " + mediaRebotes + " y se evaluaron " + listaPivots.size() + " registro(s)");
@@ -52,9 +51,20 @@ public class Main {
 
         System.out.println("Jugadores del top 5 ");
 
-        List<Jugador> jugadoresRangoFecha = listaJugadores.stream().filter(jugador -> jugador.getFechaNacimiento().isBefore(LocalDate.now().minusYears(edadMin))).filter(jugador -> jugador.getFechaNacimiento().isAfter(LocalDate.now().minusYears(edadMax))).limit(5).toList();
+        List<Jugador> jugadoresRangoFecha = listaJugadores.stream()
+                .filter(jugador -> jugador.getFechaNacimiento().isBefore(LocalDate.now().minusYears(edadMin)))
+                .filter(jugador -> jugador.getFechaNacimiento().isAfter(LocalDate.now().minusYears(edadMax)))
+                .limit(5).toList();
 
         print(jugadoresRangoFecha);
+
+        Collections.sort(listaJugadores);
+
+        System.out.println("Lista ordenada");
+
+        for (Jugador j : listaJugadores){
+            System.out.println("j = " + j);
+        }
 
     }
 
@@ -71,7 +81,9 @@ public class Main {
 
     public static List<Jugador> filtarPorTipoYMinimoCanastas(List<Jugador> jugadores, String tipo, int canastas) {
 
-        return jugadores.stream().filter(jugador -> jugador.getCanastas() > canastas).filter(jugador -> jugador.getPosicion().toString().equals(tipo)).toList();
+        return jugadores.stream()
+                .filter(jugador -> jugador.getCanastas() > canastas)
+                .filter(jugador -> jugador.getPosicion().toString().equals(tipo)).toList();
     }
 
     private static Jugador crearJugadorAleatorio() {
